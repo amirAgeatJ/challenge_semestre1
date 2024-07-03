@@ -1,6 +1,5 @@
 .env
 /db
-/www/vendor
 .DS_Store
 /www/.DS_Store
 .idea
