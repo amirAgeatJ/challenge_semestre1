@@ -1,7 +1,7 @@
 <?php
 
 // Définir le chemin vers le fichier config.yml
-$configFilePath = __DIR__ . '/../Config/config.yml';
+$configFilePath = __DIR__ . '/../config/config.yml';
 
 if (file_exists($configFilePath)) {
     $config = yaml_parse_file($configFilePath);
