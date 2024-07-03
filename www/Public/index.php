@@ -3,6 +3,7 @@
 namespace App;
 
 // Inclure l'autoloader de Composer pour PhpMailer
+require __DIR__ . '/../vendor/autoload.php';
 
 // Notre Autoloader
 spl_autoload_register("App\myAutoloader");
