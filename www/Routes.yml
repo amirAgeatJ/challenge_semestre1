@@ -187,3 +187,7 @@
 /update-config:
   Controller: "CustomizeController"
   Action: "updateConfig"
+
+/sitemap.xml:
+  Controller: "SecurityController"
+  Action: "sitemap"
