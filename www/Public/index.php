@@ -35,16 +35,6 @@ function myAutoloader($class){
 
 //http://localhost/login
 
-$configFilePath = '../config.php';
-if (!file_exists($configFilePath) || filesize($configFilePath) == 0) {
-    // Redirigez vers la page d'installation
-    header('Location: /install');
-    exit();
-}
-
-// Inclure le fichier de configuration
-require_once $configFilePath;
-
 
 function slugToUrl($uri, $routes) {
     foreach ($routes as $route => $data) {
@@ -105,3 +95,4 @@ if( !method_exists($controller, $action) ){
     die("Le methode ".$action." n'existe pas dans le controller ".$controller);
 }
 $objetController->$action($params);
+
