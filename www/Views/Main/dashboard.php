@@ -80,7 +80,6 @@
 <ul class="sidenav sidenav-fixed" id="mobile-demo">
   <li><a href="/create-page">Create Page</a></li>
   <li><a href="/create-article">Create Article</a></li>
-  <li><a href="/profil-user">Profil</a></li>
     <?php if ($userRole === 'admin'): ?>
       <li><a href="/list-users">Voir tous les utilisateurs</a></li>
     <?php endif; ?>

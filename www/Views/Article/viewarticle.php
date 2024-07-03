@@ -14,8 +14,8 @@
       width: 100%;
       position: relative;
       scroll-behavior: smooth;
-      padding: 20px 0; /* Add some padding for better scrolling experience */
-      justify-content: center; /* Center the comments container */
+      padding: 20px 0;
+      justify-content: center;
     }
     .comments {
       display: flex;

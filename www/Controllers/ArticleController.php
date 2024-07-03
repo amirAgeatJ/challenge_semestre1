@@ -24,7 +24,8 @@ class ArticleController
 
         if (!$security->isLogged()) {
             echo "Vous devez être connecté";
-            return;
+            header("Location: /register");
+            exit();
         }    }
 
     public function create()
