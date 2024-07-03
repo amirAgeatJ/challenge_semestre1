@@ -189,5 +189,5 @@
   Action: "updateConfig"
 
 /sitemap.xml:
-  Controller: "SecurityController"
+  Controller: "Security"
   Action: "sitemap"
