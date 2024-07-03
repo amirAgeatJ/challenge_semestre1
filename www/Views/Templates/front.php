@@ -1,8 +1,5 @@
 <?php
-use App\Models\Config;
 
-$configModel = new Config();
-$config = $configModel->getConfig();
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,16 +9,11 @@ $config = $configModel->getConfig();
   <meta name="description" content="Super site avec une magnifique intégration">
   <style>
     :root {
-      --font-color: <?= htmlspecialchars($config->getFontColor()) ?>;
-      --font-size: <?= htmlspecialchars($config->getFontSize()) ?>;
-      --font-style: <?= htmlspecialchars($config->getFontStyle()) ?>;
+
     }
 
     body {
-      background-color: var(--background-color);
-      color: var(--font-color);
-      font-size: var(--font-size);
-      font-style: var(--font-style);
+
     }
   </style>
 </head>
