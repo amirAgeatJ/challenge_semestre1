@@ -1,56 +1,57 @@
 version: '3'
 services:
-
-  ##########################################################################
-  # PHP Apache
-  ##########################################################################
-  # Ce conteneur est un serveur web Apache avec PHP.
-  php-apache:
-    container_name: php_apache
-    build: site # On utilise le Dockerfile du dossier site
+  web:
+    build: site
     ports:
-      - "80:80" # On expose le port 80 du conteneur
+      - "8081:80"
     volumes:
-      - ./www:/var/www/html/ # On monte le dossier www du projet dans le dossier /var/www/html/ du conteneur
-      - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf # On monte le fichier de configuration du serveur Apache
-      - ./server/apache2.conf:/etc/apache2/apache2.conf # On monte le fichier de configuration du serveur Apache
-      - ./server/php.ini:/usr/local/etc/php/php.ini # On monte le fichier de configuration de PHP
-      - ./server/ports.conf:/etc/apache2/ports.conf # On monte le fichier de configuration des ports du serveur Apache
+      - ./www:/var/www/html/
+      - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./server/apache2.conf:/etc/apache2/apache2.conf
+      - ./server/php.ini:/usr/local/etc/php/php.ini
     networks:
-      - backend # Conteneur connecté au réseau backend
+      - default
 
-  ##########################################################################
-  # Base de données PostgreSQL
-  ##########################################################################
-  # Ce conteneur est une base de données PostgreSQL.
-  db:
-    image: postgres:latest # On utilise l'image PostgreSQL
-    container_name: db
+  postgres:
+    image: postgres:latest
+    hostname: postgres
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_USER: ${POSTGRES_USER} # On crée un utilisateur
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # On définit le mot de passe de l'utilisateur
-      POSTGRES_DB: ${POSTGRES_DB} # On crée une base de données
+      POSTGRES_DB: postgres_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - ./db:/var/lib/postgresql/data # On monte le dossier db du projet dans le dossier /var/lib/postgresql/data du conteneur
+      - ./www/dump.sql:/docker-entrypoint-initdb.d/dump.sql
     networks:
-      - backend # Conteneur connecté au réseau backend
+      - default
 
-  ##########################################################################
-  # Interface pour PostgreSQL
-  ##########################################################################
-  # Ce conteneur est une interface web pour gérer la base de données.
   pgadmin:
-    image: dpage/pgadmin4 # On utilise l'image PGAdmin
-    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL} # On définit l'email de l'utilisateur
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD} # On définit le mot de passe de l'utilisateur
+      PGADMIN_DEFAULT_EMAIL: "pgadmin@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin"
     ports:
-      - "5050:80" # On expose le port 80 du conteneur
+      - "5050:80"
     depends_on:
-      - db # On attend que le conteneur db soit démarré
+      - postgres
     networks:
-      - backend # Conteneur connecté au réseau backend
+      - default
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro  # Adjusted path to nginx.conf
+      - ./www:/var/www/html
+    depends_on:
+      - web
+    networks:
+      - default
 
 networks:
-  backend: # On crée un réseau backend
+  default:
+    external:
+      name: challenge-3iwj_default
