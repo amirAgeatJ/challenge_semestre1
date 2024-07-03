@@ -35,7 +35,7 @@ class PageController
     public function store()
     {
         $security = new Auth();
-        if (!$security->isLogged() || !$security->hasRole(['admin', 'author'])) {
+        if (!$security->isLogged() || !$security->hasRole(['admin', 'editor'])) {
             header("Location: /register");
             exit();
         }
@@ -104,7 +104,7 @@ class PageController
     public function edit()
     {
         $security = new Auth();
-        if (!$security->isLogged() || !$security->hasRole(['admin', 'author'])) {
+        if (!$security->isLogged() || !$security->hasRole(['admin', 'editor'])) {
             header("Location: /login");
             exit();
         }
@@ -147,7 +147,7 @@ class PageController
     public function delete()
     {
         $security = new Auth();
-        if (!$security->isLogged() || !$security->hasRole(['admin', 'author'])) {
+        if (!$security->isLogged() || !$security->hasRole(['admin', 'editor'])) {
             header("Location: /login");
             exit();
         }

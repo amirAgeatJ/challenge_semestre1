@@ -7,14 +7,14 @@ class User extends SQL
 {
 
     const ROLE_ADMIN = 'admin';
-    const ROLE_AUTHOR = 'author';
+    const ROLE_EDITOR = 'editor';
 
     private ?int $id = null;
     protected string $firstname;
     protected string $lastname;
     protected string $email;
     protected string $password;
-    protected string $role = self::ROLE_AUTHOR; // Rôle par défaut
+    protected string $role = self::ROLE_EDITOR;
 
     protected int $status = 0;
     protected ?string $token = null;

@@ -32,7 +32,7 @@ class Main
     public function dashboard(): void
     {
         $security = new Auth();
-        if (!$security->isLogged() || !$security->hasRole(['admin', 'author'])) {
+        if (!$security->isLogged() || !$security->hasRole(['admin', 'editor'])) {
             header("Location: /register");
             exit();
         }

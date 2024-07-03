@@ -77,7 +77,7 @@ class Security
             $user->setLastname($_POST["lastname"]);
             $user->setPassword($_POST["password"]);
             $user->setEmail($email);
-            $user->setRole(User::ROLE_ADMIN);
+            $user->setRole(User::ROLE_EDITOR);
             $token = bin2hex(random_bytes(32));
             $user->setToken($email, $token);
             $user->save();
@@ -137,7 +137,7 @@ class Security
                 $from = ['email' => 'no-reply@rebellab.tech', 'name' => 'Rebellab'];
                 $to = ['email' => $email, 'name' => $user->getFullName($email)];
                 $subject = 'Password reset request';
-                $resetLink = 'http://localhost/reset-password?token=' . $resetToken;
+                $resetLink = 'http://37.187.198.46:8081/reset-password?token=' . $resetToken;
                 $body = "Cliquez sur ce lien pour réinitialiser votre mot de passe: <a href='$resetLink'>Réinitialiser le mot de passe</a>";
                 $altBody = "Cliquez sur ce lien pour réinitialiser votre mot de passe: $resetLink";
 
@@ -200,11 +200,10 @@ class Security
             $config = require __DIR__ . '/../config/config.php';
             // Créer une instance de Mailer avec la configuration
             $mailer = new Mailer($config);
-            // Définir les informations de l'e-mail
             $from = ['email' => 'no-reply@rebellab.tech', 'name' => 'Rebellab'];
             $to = ['email' => $email, 'name' => $user->getFullName($email)];
             $subject = 'Confirmation de votre inscription';
-            $activateLink = 'http://localhost/activate-account?email=' . $email;
+            $activateLink = 'http://37.187.198.46:8081/activate-account?email=' . $email;
             $body = "Cliquez sur ce lien pour activer votre compte: <a href='$activateLink'>Activer mon compte</a>";
             $altBody = "Cliquez sur ce lien pour activer votre compte: $activateLink";
 

@@ -65,6 +65,17 @@ class Config extends SQL
         return $stmt->fetchObject(self::class);
     }
 
+
+    public function hasConfig()
+    {
+        $sql = "SELECT COUNT(*) as count FROM chall_config";
+        $queryPrepared = $this->pdo->prepare($sql);
+        $queryPrepared->execute();
+        $result = $queryPrepared->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] > 0;
+    }
+
+
     public function updateConfig(): bool
     {
         $sql = "UPDATE chall_config SET background_color = :background_color, font_color = :font_color, font_size = :font_size, font_style = :font_style WHERE id = 1";
