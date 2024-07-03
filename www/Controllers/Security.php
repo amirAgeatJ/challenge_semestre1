@@ -89,7 +89,7 @@ class Security
             $from = ['email' => 'admin@rebellab.tech', 'Rebellab' => 'Mailer'];
             $to = ['email' => $email, 'name' => $_POST["firstname"] . ' ' . $_POST["lastname"]];
             $subject = 'Confirmation de votre inscription';
-            $confirmLink = 'http://localhost//confirm-email?token=' . $token;
+            $confirmLink = 'http://localhost/confirm-email?token=' . $token;
             $body = "Cliquez sur ce lien pour confirmer votre inscription: <a href='$confirmLink'>Confirmer l'inscription</a>";
             $altBody = 'Merci de vous être inscrit sur notre site !';
 
