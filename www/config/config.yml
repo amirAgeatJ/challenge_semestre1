@@ -1,0 +1,6 @@
+smtp:
+  host: "sandbox.smtp.mailtrap.io"
+  username: "d395ddcb61da15"
+  password: "8428f56af30141"
+  port: "587"
+  encryption: "PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS"
