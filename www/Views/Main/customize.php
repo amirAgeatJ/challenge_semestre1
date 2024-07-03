@@ -17,7 +17,6 @@
   <form action="/update-config" method="post" id="customize-form">
     <div class="input-field color-picker">
       <label for="background-color">Couleur de l'arrière-plan</label>
-      <input type="color" id="background-color" name="background-color" value="<?= htmlspecialchars($config->getBackgroundColor()) ?>">
     </div>
     <div class="input-field color-picker">
       <label for="font-color">Couleur de la police</label>

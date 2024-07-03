@@ -12,7 +12,6 @@ $config = $configModel->getConfig();
   <meta name="description" content="Super site avec une magnifique intégration">
   <style>
     :root {
-      --background-color: <?= htmlspecialchars($config->getBackgroundColor()) ?>;
       --font-color: <?= htmlspecialchars($config->getFontColor()) ?>;
       --font-size: <?= htmlspecialchars($config->getFontSize()) ?>;
       --font-style: <?= htmlspecialchars($config->getFontStyle()) ?>;
