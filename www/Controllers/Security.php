@@ -129,7 +129,7 @@ class Security
                 $user->setToken($email, $resetToken);
 
                 // Charger la configuration
-                $config = require __DIR__ . '/../Config/config.php';
+                $config = require __DIR__ . '/../config/config.php';
                 // Créer une instance de Mailer avec la configuration
                 $mailer = new Mailer($config);
                 // Définir les informations de l'e-mail
@@ -196,7 +196,7 @@ class Security
 
         if ($user->exists($email)) {
             // Charger la configuration
-            $config = require __DIR__ . '/../Config/config.php';
+            $config = require __DIR__ . '/../config/config.php';
             // Créer une instance de Mailer avec la configuration
             $mailer = new Mailer($config);
             // Définir les informations de l'e-mail
