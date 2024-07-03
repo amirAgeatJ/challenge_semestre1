@@ -21,8 +21,9 @@ class CommentaireController
         $security = new Auth();
 
         if (!$security->isLogged()) {
-            echo "Vous devez être connecté";
-            return;
+            echo "Vous devez être connecter";
+            header("Location: /register");
+            exit();
         }    }
 
 

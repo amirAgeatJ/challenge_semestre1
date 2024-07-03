@@ -19,7 +19,8 @@ class MediaController
 
         if (!$security->isLogged()) {
             echo "Vous devez être connecté";
-            return;
+            header("Location: /register");
+            exit();
         }
 
     }

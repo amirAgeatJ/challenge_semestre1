@@ -18,8 +18,9 @@ class PageController
         $security = new Auth();
 
         if (!$security->isLogged()) {
-            echo "Vous devez vous  connectézz";
-            return;
+            echo "Vous devez vous connectez";
+            header("Location: /register");
+            exit();
         }
     }
 

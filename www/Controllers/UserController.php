@@ -25,8 +25,8 @@ class UserController
         $security = new Auth();
 
         if (!$security->isLogged()) {
-            echo "Vous devez vous  connectézz";
-            return;
+            header("Location: /register");
+            exit();
         }
     }
 
