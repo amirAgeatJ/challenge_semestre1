@@ -6,14 +6,8 @@
   <title>S'inscrire</title>
   <style>
     :root {
-      --background-color: #f7f9fc; /* Light background color */
-      --font-color: #333; /* Dark font color */
-      --primary-color: #4CAF50; /* Primary color for buttons */
-      --secondary-color: #81c784; /* Secondary color for button hover */
-      --input-border-color: #ddd; /* Border color for inputs */
-      --input-focus-border-color: #4CAF50; /* Focus border color for inputs */
-      --form-background-color: #fff; /* Form background color */
-      --box-shadow-color: rgba(0, 0, 0, 0.1); /* Box shadow color */
+      --background-color: #ffffff; /* Default background color */
+      --font-color: #000000; /* Default font color */
     }
 
     body {
@@ -28,20 +22,14 @@
     }
 
     form {
-      background-color: var(--form-background-color);
-      padding: 30px;
+      background-color: #fff;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 15px var(--box-shadow-color);
-      width: 350px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    form:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px var(--box-shadow-color);
     }
 
     .container {
@@ -49,57 +37,92 @@
     }
 
     h2 {
-      color: var(--font-color);
+      color: #333;
       margin-bottom: 20px;
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .login-container {
-      background-color: var(--form-background-color);
+      background-color: #fff;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px var(--box-shadow-color);
-      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
+    .social-login {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .social-button {
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .social-button.facebook {
+      color: #3b5998;
+    }
+
+    .social-button.google {
+      color: #db4a39;
+    }
+
+    .social-button.linkedin {
+      color: #0077b5;
+    }
+
+    .social-login p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+      text-align: center;
+      width: 100%;
+    }
+
     input {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       margin: 10px 0;
-      border: 1px solid var(--input-border-color);
+      border: 1px solid #ddd;
       border-radius: 5px;
       box-sizing: border-box;
       font-size: 14px;
-      transition: border-color 0.3s ease;
     }
 
     input:focus {
-      border-color: var(--input-focus-border-color);
+      border-color: #a5d6a7;
       outline: none;
     }
 
     button[type="submit"] {
-      background-color: var(--primary-color);
+      background-color: #a5d6a7;
       border: none;
       border-radius: 5px;
-      padding: 12px;
+      padding: 10px;
       font-size: 16px;
       color: #fff;
       cursor: pointer;
       transition: background-color 0.3s ease;
       margin-top: 20px;
       width: 100%;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     button[type="submit"]:hover {
-      background-color: var(--secondary-color);
+      background-color: #81c784;
     }
 
     /* Specific styles for user-list-form */
@@ -138,12 +161,9 @@
       margin-top: 0;
     }
 
+    /* No border for specific buttons */
     .no-border {
       border: none !important;
-    }
-
-    .register-form {
-      margin-top: 20px;
     }
   </style>
 </head>
