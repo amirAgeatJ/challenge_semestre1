@@ -89,7 +89,7 @@ class Security
             $from = ['email' => 'admin@rebellab.tech', 'Rebellab' => 'Mailer'];
             $to = ['email' => $email, 'name' => $_POST["firstname"] . ' ' . $_POST["lastname"]];
             $subject = 'Confirmation de votre inscription';
-            $confirmLink = 'http://37.187.198.46:8081//confirm-email?token=' . $token;
+            $confirmLink = 'http://localhost//confirm-email?token=' . $token;
             $body = "Cliquez sur ce lien pour confirmer votre inscription: <a href='$confirmLink'>Confirmer l'inscription</a>";
             $altBody = 'Merci de vous être inscrit sur notre site !';
 
@@ -136,7 +136,7 @@ class Security
                 $from = ['email' => 'no-reply@rebellab.tech', 'name' => 'Rebellab'];
                 $to = ['email' => $email, 'name' => $user->getFullName($email)];
                 $subject = 'Password reset request';
-                $resetLink = 'http://37.187.198.46:8081/reset-password?token=' . $resetToken;
+                $resetLink = 'http://localhost/reset-password?token=' . $resetToken;
                 $body = "Cliquez sur ce lien pour réinitialiser votre mot de passe: <a href='$resetLink'>Réinitialiser le mot de passe</a>";
                 $altBody = "Cliquez sur ce lien pour réinitialiser votre mot de passe: $resetLink";
 
@@ -203,7 +203,7 @@ class Security
             $from = ['email' => 'no-reply@rebellab.tech', 'name' => 'Rebellab'];
             $to = ['email' => $email, 'name' => $user->getFullName($email)];
             $subject = 'Confirmation de votre inscription';
-            $activateLink = 'http://37.187.198.46:8081//activate-account?email=' . $email;
+            $activateLink = 'http://localhost/activate-account?email=' . $email;
             $body = "Cliquez sur ce lien pour activer votre compte: <a href='$activateLink'>Activer mon compte</a>";
             $altBody = "Cliquez sur ce lien pour activer votre compte: $activateLink";
 
