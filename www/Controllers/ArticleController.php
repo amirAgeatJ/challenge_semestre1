@@ -31,7 +31,7 @@ class ArticleController
     {
 
         $form = new Form("CreateArticle");
-        $view = new View("Article/createArticle");
+        $view = new View("Article/createArticle", "back");
         $view->assign("form", $form->build());
         $view->render();
     }
@@ -90,7 +90,7 @@ class ArticleController
 
         $articleModel = new Article();
         $articles = $articleModel->getAllArticles();
-        $view = new View("Article/listArticle");
+        $view = new View("Article/listArticle", "back");
         $view->assign("articles", $articles);
         $view->render();
     }
@@ -100,7 +100,7 @@ class ArticleController
 
         $articleId = $_GET['id'];
         $form = new Form("CommentaireForm");
-        $view = new View("Commentaire/addCommentaire");
+        $view = new View("Commentaire/addCommentaire", "back");
         $view->assign("form", $form->build());
         $view->assign("articleId", $articleId);
         $view->render();
@@ -132,7 +132,7 @@ class ArticleController
                     exit();
                 }
 
-                $view = new View("Article/editArticle");
+                $view = new View("Article/editArticle", "back");
                 $view->assign('form', $articleForm->build());
                 $view->render();
             } else {
